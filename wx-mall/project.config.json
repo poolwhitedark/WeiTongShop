@@ -1,0 +1,86 @@
+{
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "showES6CompileOption": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "1.9.0",
+  "appid": "wxe60d0de1ebe78dfa",
+  "projectname": "wxshop",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "选择优惠券",
+          "pathName": "pages/shopping/selCoupon/selCoupon",
+          "query": "isBuy=false"
+        },
+        {
+          "id": -1,
+          "name": "订单界面",
+          "pathName": "pages/shopping/checkout/checkout",
+          "query": "isBuy=true"
+        },
+        {
+          "id": -1,
+          "name": "我的优惠券",
+          "pathName": "pages/ucenter/coupon/coupon",
+          "query": "isBuy=true"
+        },
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "pages/ucenter/order/order",
+          "query": ""
+        }
+      ]
+    }
+  }
+}
