@@ -80,21 +80,19 @@ public class ApiAuthController extends ApiBaseAction {
     @PostMapping("login_by_weixin")
     public Object loginByWeixin() {
         JSONObject jsonParam = this.getJsonRequest();
-        FullUserInfo fullUserInfo = null;
         String code = "";
         if (!StringUtils.isNullOrEmpty(jsonParam.getString("code"))) {
             code = jsonParam.getString("code");
         }
+        UserInfo userInfo=new UserInfo();
         if (null != jsonParam.get("userInfo")) {
-            fullUserInfo = jsonParam.getObject("userInfo", FullUserInfo.class);
+            userInfo = jsonParam.getObject("userInfo", UserInfo.class);
         }
-        if (null == fullUserInfo) {
+        if (null == userInfo) {
             return toResponsFail("登录失败");
         }
 
         Map<String, Object> resultObj = new HashMap<String, Object>();
-        //
-        UserInfo userInfo = fullUserInfo.getUserInfo();
 
         //获取openid
         String requestUrl = ApiUserUtils.getWebAccess(code);//通过自定义工具类组合出小程序需要的登录凭证 code
@@ -102,11 +100,6 @@ public class ApiAuthController extends ApiBaseAction {
         JSONObject sessionData = CommonUtil.httpsRequest(requestUrl, "GET", null);
 
         if (null == sessionData || StringUtils.isNullOrEmpty(sessionData.getString("openid"))) {
-            return toResponsFail("登录失败");
-        }
-        //验证用户信息完整性
-        String sha1 = CommonUtil.getSha1(fullUserInfo.getRawData() + sessionData.getString("session_key"));
-        if (!fullUserInfo.getSignature().equals(sha1)) {
             return toResponsFail("登录失败");
         }
         Date nowTime = new Date();

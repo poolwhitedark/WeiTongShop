@@ -76,8 +76,9 @@ public class ApiBaseAction {
         Map<String, Object> obj = new HashMap<String, Object>();
         obj.put("errno", requestCode);
         obj.put("errmsg", msg);
-        if (data != null)
+        if (data != null) {
             obj.put("data", data);
+        }
         return obj;
     }
 
